@@ -1,0 +1,40 @@
+﻿@model MVC_Football_Picks.Models.PlayerPicks
+
+@{
+    ViewData["Title"] = "ViewPicks";
+}
+
+<h1>Player Picks</h1>
+
+<div>
+    <h4>Players Picks for : @ViewBag.player Week : @ViewBag.week</h4>
+    <div class="row mb-3">
+        <div class="col-md-6">
+            <ul class="list-group list-group-flush mt-2 shadow-nohover">
+                @if (Model != null)
+                {
+                    <li class="list-group-item">@Model.Pick1</li>
+                    <li class="list-group-item">@Model.Pick2</li>
+                    <li class="list-group-item">@Model.Pick3</li>
+                    <li class="list-group-item">@Model.Pick4</li>
+                    <li class="list-group-item">@Model.Pick5</li>
+                    <li class="list-group-item">@Model.Pick6</li>
+                    <li class="list-group-item">@Model.Pick7</li>
+                    <li class="list-group-item">@Model.Pick8</li>
+                    <li class="list-group-item">@Model.Pick9</li>
+                    <li class="list-group-item">@Model.Pick10</li>
+                    <li class="list-group-item">@Model.Pick11</li>
+                    <li class="list-group-item">@Model.Pick12</li>
+                    <li class="list-group-item">@Model.Pick13</li>
+                    <li class="list-group-item">@Model.Pick14</li>
+                    <li class="list-group-item">@Model.Pick15</li>
+                    <li class="list-group-item">@Model.Pick16</li>
+                }
+
+            </ul>
+        </div>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

@@ -1,0 +1,23 @@
+﻿@model IEnumerable<MVC_Football_Picks.Models.Player>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Choose Player</h1>
+
+
+<div class="col-md-12 align-content-between justify-content-end">
+    <form method="post" class="form-group">
+        <select id="playersId" name="id" class="form-control-lg mt-1">
+            @foreach (var item in Model)
+            {
+                <option value="@item.Id">@item.Username</option>
+            }
+        </select>
+        <input asp-controller="PlayerPicks" asp-action="ViewPicks" class="btn btn-secondary btn-lg btn-dark ml-3" value="Submit" type="submit" />
+    </form>
+</div>
+
+
+

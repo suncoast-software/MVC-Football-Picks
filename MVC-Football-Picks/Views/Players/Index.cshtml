@@ -1,0 +1,50 @@
+﻿@model IEnumerable<MVC_Football_Picks.Models.Player>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Players</h1>
+<a asp-"controller="Players" asp-action="AddPlayer">Add player</a>
+<table class="table table-hover table-striped mt-3">
+    <thead class="table table-secondary">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Role)
+            </th>
+            <th>
+                User
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th>
+                Phone #
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Role)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                <a asp-controller="Players" asp-action="AddPicks" asp-route-id="@item.Id" class="btn btn-info" role="button" method="submit">Picks</a>
+                <a asp-controller="Players" asp-action="ViewPicks" asp-route-id="@item.Id" class="btn btn-info" role="button" method="submit">View Picks</a>
+                <a asp-controller="Players" asp-action="EditPicks" asp-route-id="@item.Id" class="btn btn-info" role="button" method="submit">Edit Picks</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

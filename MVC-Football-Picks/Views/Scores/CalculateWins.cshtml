@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MVC_Football_Picks.Models.MatchupWinner>
+
+@{
+    ViewData["Title"] = "CalculateWins";
+}
+
+<h1>CalculateWins</h1>
+
+<p>
+    <a asp-controller="Players" asp-action="Index">Back</a>
+</p>
+<table class="table table-striped table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Winner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerPick)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Win)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Week)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr class="shadow-nohover">
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Winner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayerPick)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Win)
+            </td> 
+            <td>
+                @Html.DisplayFor(modelItem => item.Week)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<label>Total Wins : @ViewBag.scorecount</label>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<MVC_Football_Picks.Models.Matchup>
+
+@{
+    ViewData["Title"] = "EditPicks";
+}
+
+<h1>EditPicks</h1>
+
+<h4>Matchup</h4>
+<hr />
+
+@if (Model != null)
+{
+
+    @using (Html.BeginForm("SavePicks", "Players", FormMethod.Post, new { @class = "form-group" }))
+    {
+    <div class="row">
+        @foreach (var item in Model)
+        {
+
+
+            <div class="col-md-6 flex-fill text-center">
+                <div class="card bg-light mb-4 shadow-nohover">
+                    <div class="card-header">
+                        Matchup
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Week : @item.Week</h5>
+                        <p class="card-text">Choose one team by clicking the button for @ViewBag.player.Username</p>
+                        <div class="imput-group-text">
+                            <input id="awayPick" type="checkbox" name="teams" value="@item.AwayTeam" />
+                            <label class="ml-1 mr-4 text-secondary"><strong>@item.AwayTeam (@item.AwayRecord)</strong></label>
+
+                            <input id="homePick" type="checkbox" name="teams" value="@item.HomeTeam" />
+                            <label class="ml-1 text-secondary"><strong>@item.HomeTeam (@item.HomeRecord)</strong></label>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+<div class="row">
+    <div class="col-md-4">
+        <input type="submit" asp-controller="Players" asp-action="SavePicks" asp-route-id="@ViewBag.player.Id" class="btn btn-primary" role="button" />
+    </div>
+</div>
+    }
+    }
+    else
+    {
+        <div class="alert alert-info">No Player Picks to Edit!</div>
+    }
+
+
+    <div>
+        <a asp-action="Index">Back to List</a>
+    </div>
+

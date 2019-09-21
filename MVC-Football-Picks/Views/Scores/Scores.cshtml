@@ -1,0 +1,79 @@
+﻿@model IEnumerable<MVC_Football_Picks.Models.Matchup>
+
+@{
+    ViewData["Title"] = "Scores";
+    var week = ViewBag.week;
+    
+}
+
+<h1>@ViewData["Title"] for Week : @week</h1>
+<div class="row">
+    <form class="form-inline" method="post">
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="search" class="sr-only">Search</label>
+            <input type="text" name="search" class="form-control" id="search" placeholder="Search Week">
+        </div>
+        <input type="submit" class="btn btn-primary mb-2" />
+    </form>
+</div>
+<table class="table table-hover table-striped table-bordered mt-3">
+    <thead class="table table-primary">
+        <tr>
+            <th>
+                Away Team
+            </th>
+            <th>
+                Record
+            </th>
+            <th>
+               Score
+            </th>
+            <th>
+                Home Team
+            </th>
+            <th>
+                Record
+            </th>
+            <th>
+               Score
+            </th>
+            <th>
+                Year
+            </th>
+            <th>
+                Week
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayTeam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayRecord)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AwayScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeTeam)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeRecord)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HomeScore)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Year)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Week)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

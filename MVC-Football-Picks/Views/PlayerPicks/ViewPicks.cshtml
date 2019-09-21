@@ -1,0 +1,49 @@
+﻿@model MVC_Football_Picks.Models.PlayerPicks
+
+@{
+    ViewData["Title"] = "ViewPicks";
+}
+
+<div class="card shadow-nohover mt-4">
+    <div class="card-header bg-dark text-white align-content-between justify-content-around">
+        <strong>Picks for Player : @ViewBag.player.Username [@Model.PlayerId] </strong>
+        <span>&nbsp;&nbsp;[ Week: @Model.Week ]</span>
+    </div>
+    <div class="card-body bg-grey-900">
+        <h5 class="card-title"></h5>
+        <p class="card-text">@Model.Pick1</p>
+        <hr />
+        <p class="card-text">@Model.Pick2</p>
+        <hr />
+        <p class="card-text">@Model.Pick3</p>
+        <hr />
+        <p class="card-text">@Model.Pick4</p>
+        <hr />
+        <p class="card-text">@Model.Pick5</p>
+        <hr />
+        <p class="card-text">@Model.Pick6</p>
+        <hr />
+        <p class="card-text">@Model.Pick7</p>
+        <hr />
+        <p class="card-text">@Model.Pick8</p>
+        <hr />
+        <p class="card-text">@Model.Pick9</p>
+        <hr />
+        <p class="card-text">@Model.Pick10</p>
+        <hr />
+        <p class="card-text">@Model.Pick11</p>
+        <hr />
+        <p class="card-text">@Model.Pick12</p>
+        <hr />
+        <p class="card-text">@Model.Pick13</p>
+        <hr />
+        <p class="card-text">@Model.Pick14</p>
+        <hr />
+        <p class="card-text">@Model.Pick15</p>
+        <hr />
+        <p class="card-text">@Model.Pick16</p>
+    </div>
+</div>
+<a asp-controller="Scores" asp-action="CalculateWins" asp-route-id="@Model.PlayerId"class="btn btn-dark btn-lg mt-3" role="button">Calculate Wins</a>
+<a asp-action="Index" class="btn btn-dark btn-lg mt-3" role="button">Back To List</a>
+

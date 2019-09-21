@@ -1,0 +1,92 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card bg-dark text-white" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Matchups</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">View Current Week Matchups</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link btn-block btn-primary text-center" role="button">Matchups</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-dark text-white" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Scores</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">View Current Week Scores</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link btn-block btn-primary text-center" role="button">Scores</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card bg-dark text-white" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Players</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">View All Players</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="#" class="card-link btn-block btn-primary text-center" role="button">Players</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3 mr-5">
+        <div class="col-md-12">
+            <div class="alert alert-dark text-center text-capitalize" role="alert">SITE NEWS</div>
+            <div class="list-group">
+                <a href="#" class="list-group-item list-group-item-action active">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">List group item heading</h5>
+                        <small>3 days ago</small>
+                    </div>
+                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                    <small>Donec id elit non mi porta.</small>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">List group item heading</h5>
+                        <small class="text-muted">3 days ago</small>
+                    </div>
+                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                    <small class="text-muted">Donec id elit non mi porta.</small>
+                </a>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">List group item heading</h5>
+                        <small class="text-muted">3 days ago</small>
+                    </div>
+                    <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
+                    <small class="text-muted">Donec id elit non mi porta.</small>
+                </a>
+            </div>
+        </div>
+    </div>
+
+}
+else
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome to Weekly Football Pool</h1>
+        <div class="alert alert-primary mt-3" role="alert">
+            Weekly Football Pool is a website to keep track of
+            your weekly picks. each player must be logged in to
+            choose his/her picks for the week.
+        </div>
+        <div class="alert alert-primary" role="alert">
+            Weekly Football Pool is a website to keep track of
+            your weekly picks. each player must be logged in to
+            choose his/her picks for the week.
+        </div>
+    </div>
+}
+

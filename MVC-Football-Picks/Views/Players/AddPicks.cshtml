@@ -1,0 +1,60 @@
+﻿@using MVC_Football_Picks.Models
+@model IEnumerable<MVC_Football_Picks.Models.Matchup>
+
+
+@{
+    ViewData["Title"] = "AddPicks";
+
+}
+
+<h1>Add Picks for Week : @ViewBag.week</h1>
+
+@if (Model != null)
+{
+    @using (Html.BeginForm("SavePicks", "Players", FormMethod.Post, new { @class = "form-group" }))
+    {
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-6 flex-fill">
+            <div class="card bg-light mb-4 shadow-nohover">
+                <div class="card-header">
+                    Add pick for @ViewBag.player.Username Week: @item.Week
+                </div>
+                <div class="card-body text-center">
+                    <h5 class="card-title">Matchup</h5>
+                    <p class="card-text">Choose one team by clicking the button for @ViewBag.player.Username</p>
+                    <div class="imput-group-text">
+                        <input id="awayPick" type="checkbox" name="teams" value="@item.AwayTeam" />
+                        <label class="ml-1 mr-4 text-secondary"><strong>@item.AwayTeam (@item.AwayRecord)</strong></label>
+
+                        <input id="homePick" type="checkbox" name="teams" value="@item.HomeTeam" />
+                        <label class="ml-1 text-secondary"><strong>@item.HomeTeam (@item.HomeRecord)</strong></label>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    }
+</div>
+    <div class="row">
+        <div class="col-md-4">
+            <input type="submit" asp-controller="Players" asp-action="SavePicks" asp-route-id="@ViewBag.player.Id" class="btn btn-primary" role="button" />
+        </div>
+    </div>
+    }
+    }
+    else
+    {
+    <div class="alert alert-info">You already Made this weeks Picks, to change your picks!<a asp-controller="Players" asp-action="EditPicks" asp-route-id="@ViewBag.player.Id" class="btn btn-secondary" role="button">Edit</a></div>
+    <div>
+        <a asp-controller="Players" asp-action="Index">Back to List</a>
+    </div>
+    }
+
+
+
+
+
